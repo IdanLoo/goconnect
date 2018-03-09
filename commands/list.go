@@ -7,7 +7,8 @@ import (
 	"github.com/teris-io/cli"
 )
 
-var list cli.Command
+// List is a command
+var List cli.Command
 
 func listAction(args []string, options map[string]string) int {
 	for name := range util.Nodes {
@@ -17,15 +18,10 @@ func listAction(args []string, options map[string]string) int {
 }
 
 func init() {
-	list = cli.NewCommand("list", "list all nodes").
+	List = cli.NewCommand("list", "list all nodes").
 		WithShortcut("l").
 		WithOption(cli.NewOption("password", "display password").
 			WithChar('p').
 			WithType(cli.TypeBool)).
 		WithAction(listAction)
-}
-
-// List get list command
-func List() cli.Command {
-	return list
 }

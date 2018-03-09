@@ -7,7 +7,8 @@ import (
 	"github.com/teris-io/cli"
 )
 
-var add cli.Command
+// Add is a command
+var Add cli.Command
 
 func addAction(args []string, options map[string]string) int {
 	var (
@@ -38,13 +39,8 @@ func addAction(args []string, options map[string]string) int {
 }
 
 func init() {
-	add = cli.NewCommand("add", "add service to list").
+	Add = cli.NewCommand("add", "add service to list").
 		WithShortcut("a").
 		WithArg(cli.NewArg("name", "any name easy to remember")).
 		WithAction(addAction)
-}
-
-// Add get add command
-func Add() cli.Command {
-	return add
 }

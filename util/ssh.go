@@ -2,7 +2,6 @@ package util
 
 import (
 	"fmt"
-	"net"
 	"time"
 
 	"golang.org/x/crypto/ssh"
@@ -15,12 +14,10 @@ func Connect(node *Node) (*ssh.Session, error) {
 	addr := fmt.Sprintf("%s:%d", node.Host, 22)
 
 	clientConfig := &ssh.ClientConfig{
-		User:    node.User,
-		Auth:    auth,
-		Timeout: 30 * time.Second,
-		HostKeyCallback: func(hostname string, remote net.Addr, key ssh.PublicKey) error {
-			return nil
-		},
+		User:            node.User,
+		Auth:            auth,
+		Timeout:         30 * time.Second,
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
 	var (

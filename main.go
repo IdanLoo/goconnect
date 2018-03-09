@@ -66,9 +66,10 @@ func mainAction(args []string, options map[string]string) int {
 
 func main() {
 	app := cli.New("ssh tool").
-		WithCommand(commands.List()).
-		WithCommand(commands.Add()).
-		WithCommand(commands.Rm()).
+		WithCommand(commands.List).
+		WithCommand(commands.Add).
+		WithCommand(commands.Rm).
+		WithCommand(commands.Scp).
 		WithArg(cli.NewArg("name", "name of service")).
 		WithAction(mainAction)
 

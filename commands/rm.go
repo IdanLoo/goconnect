@@ -5,7 +5,8 @@ import (
 	"github.com/teris-io/cli"
 )
 
-var rm cli.Command
+// Rm is a command
+var Rm cli.Command
 
 func rmAction(args []string, options map[string]string) int {
 	util.Nodes.Remove(args[0])
@@ -13,12 +14,7 @@ func rmAction(args []string, options map[string]string) int {
 }
 
 func init() {
-	rm = cli.NewCommand("rm", "remove service from list").
+	Rm = cli.NewCommand("rm", "remove service from list").
 		WithArg(cli.NewArg("name", "name of service")).
 		WithAction(rmAction)
-}
-
-// Rm get rm command
-func Rm() cli.Command {
-	return rm
 }
