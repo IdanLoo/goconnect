@@ -27,7 +27,7 @@ func scpAction(args []string, options map[string]string) int {
 }
 
 func init() {
-	Scp = cli.NewCommand("upload", "upload file to service").
+	Scp = cli.NewCommand("scp", "upload file to service").
 		WithArg(cli.NewArg("name", "name of service")).
 		WithArg(cli.NewArg("file-path", "file path")).
 		WithArg(cli.NewArg("destination-path", "destination path")).
