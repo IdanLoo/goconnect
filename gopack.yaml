@@ -1,0 +1,4 @@
+build:
+- echo Start build!
+- go build
+- ls
