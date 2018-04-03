@@ -22,7 +22,7 @@ var Nodes = make(NodeMap)
 
 // NewNode is constructor of Node
 func NewNode(user, password, host string, port int) *Node {
-	return &Node{user, password, host, 22}
+	return &Node{user, password, host, port}
 }
 
 func init() {

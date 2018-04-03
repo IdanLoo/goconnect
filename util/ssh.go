@@ -11,7 +11,7 @@ import (
 func Connect(node *Node) (*ssh.Session, error) {
 	auth := make([]ssh.AuthMethod, 0)
 	auth = append(auth, ssh.Password(node.Password))
-	addr := fmt.Sprintf("%s:%d", node.Host, 22)
+	addr := fmt.Sprintf("%s:%d", node.Host, node.Port)
 
 	clientConfig := &ssh.ClientConfig{
 		User:            node.User,
